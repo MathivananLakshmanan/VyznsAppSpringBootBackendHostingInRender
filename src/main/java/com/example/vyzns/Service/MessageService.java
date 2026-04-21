@@ -28,11 +28,10 @@ public class MessageService {
     //  1. SEND MESSAGE
     public Message sendMessage(MessageReq req) {
 
-        //  get exchange
         ExchangeIteam exchange = exchangeRepo.findById(req.getExchangeId())
                 .orElseThrow(() -> new RuntimeException("Exchange not found"));
 
-        //  get sender
+
         User sender = userRepo.findById(req.getSenderId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
